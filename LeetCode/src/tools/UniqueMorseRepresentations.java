@@ -14,18 +14,31 @@ public class UniqueMorseRepresentations {
         	}
         	w[i]=temp;
         }
-		String judue="";
+		int f=1;
+		String[] ju=new String[w.length];
 		for(int i=0;i<w.length;i++){
-			if(!judue.contains(w[i])){
-				total++;
-				judue=w[i]+"+"+judue;
+			ju[i]="0";
+		}
+		for(int i=0;i<w.length;i++){
+			f=1;
+			for(int j=0;j<ju.length;j++){
+				if(w[i].equals(ju[j])){
+					f=0;
+					break;
+				}
 			}
+			if(f==1)
+				ju[i]=w[i];
+		}
+		for(int i=0;i<ju.length;i++){
+			if(!ju[i].equals("0"))
+				total++;
 		}
 		return total;
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String words[]={"gin", "zen", "gig", "msg"};
+		String words[]={"mevzi","mevzi","gvgs","qhiwg","qhijn","b","b","b","b","b"};
 		int total=uniqueMorseRepresentations(words);
 		System.out.println(total);
 	}
