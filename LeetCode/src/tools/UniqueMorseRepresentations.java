@@ -36,11 +36,38 @@ public class UniqueMorseRepresentations {
 		}
 		return total;
     }
+	public static int tongjichar(String[] words) {
+		System.out.println("开始时间："+System.currentTimeMillis());
+		int total=0;
+		StringBuffer sb=new StringBuffer();
+		for(int i=0;i<words.length;i++){
+			sb.insert(0, words[i]);
+        }
+		int f=1;
+		String[] ju=new String[sb.length()];
+		for(int i=0;i<sb.length();i++){
+			f=1;
+			for(int j=0;j<ju.length;j++){
+				if(sb.substring(i, i+1).equals(ju[j])){
+					f=0;
+					break;
+				}
+			}
+			if(f==1){
+				total++;
+				ju[i]=sb.substring(i, i+1);
+			}
+		}
+		System.out.println("结束时间："+System.currentTimeMillis());
+		
+		return total;
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String words[]={"mevzi","mevzi","gvgs","qhiwg","qhijn","b","b","b","b","b"};
-		int total=uniqueMorseRepresentations(words);
-		System.out.println(total);
+		String words[]={"mevzi","mevzi","gvgs","qhiwg","qhisaffffffffffffffjn","b","b","regesrgsegrsergsergb","b","berwevsdafsfasfasfas"};
+		//int total=uniqueMorseRepresentations(words);
+		int total2=tongjichar(words);
+		System.out.println(total2);
 	}
 
 }
